@@ -16,10 +16,11 @@ public class AustralianAboriginalFlag  extends View {
 
     private Paint paint;
     private float top, right, width, height;
-
+    int c;
 
     public AustralianAboriginalFlag(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.c = Color.YELLOW;
         paint = new Paint();
         paint.setColor(Color.RED);
         paint.setStrokeWidth(10);
@@ -43,6 +44,13 @@ public class AustralianAboriginalFlag  extends View {
         height = h - (getPaddingTop() + getPaddingBottom());
     }
 
+    public int getC() {
+        return c;
+    }
+
+    public void setC(int c) {
+        this.c = c;
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -55,7 +63,8 @@ public class AustralianAboriginalFlag  extends View {
         paint.setColor(Color.RED);
         canvas.drawRect(startX, intervalY, rightX, height, paint);
 
-        paint.setColor(Color.YELLOW);
+//        paint.setColor(Color.YELLOW);
+        paint.setColor(c);
         canvas.drawCircle(getWidth()/2, getHeight()/2, 70, paint);
 
     }
